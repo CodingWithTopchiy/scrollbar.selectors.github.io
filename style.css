@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    list-style: none;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #0d1117;
+    --sb-track-color: #222;
+    --sb-thumb-color: #ea7711;
+    --sb-size: 1rem;
+}
+
+body::-webkit-scrollbar {
+    width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 1rem;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 1rem;
+}
+
+section.header {
+    padding: 2rem 9%;
+    text-align: center;
+    /* background: url(img/header-bg.jpg) no-repeat center/cover;
+    border-image: fill 0 linear-gradient(45deg, #0008, #0008); */
+}
+
+section.header .title {
+    max-width: 80rem;
+    font-size: calc(20px + (100 - 20) * ((100vw - 300px) / (1600 - 300)));
+    font-weight: 800;
+    background: linear-gradient(to right, orangered 50%, dodgerblue 60%);
+    background-size: 200% auto;
+    background-clip: border-box;
+    color: #fff;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: move 5s linear infinite;
+    display: inline-block;
+}
+
+@keyframes move {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    gap: 1.5rem;
+}
+
+.descriptions {
+    flex: 1 1 50rem;
+    height: 55rem;
+    border: 1px solid #fff;
+    margin: 0 auto;
+    overflow-y: scroll;
+    padding: 3.5rem;
+    color: #fff;
+    border-radius: 0.5rem;
+}
+
+.descriptions h3 {
+    font-size: calc(15px + (40 - 15) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.descriptions p {
+    margin: 1rem 0rem;
+    font-size: calc(10px + (18 - 10) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.descriptions ul li {
+    font-size: calc(12px + (20 - 12) * ((100vw - 300px) / (1600 - 300)));
+    margin: 0.5rem 0rem;
+}
+
+.descriptions ul li::before {
+    content: '✅';
+    padding-right: 0.5rem;
+}
+
+.descriptions::-webkit-scrollbar {
+    width: 1rem;
+}
+
+.descriptions::-webkit-scrollbar-track {
+    background: #222;
+    box-shadow: inset 0 0 5px #888;
+    border-radius: .5rem;
+}
+
+.descriptions::-webkit-scrollbar-thumb {
+    background: #ea7711;
+    border-radius: 0.5rem;
+}
+
+.info {
+    background-color: #e7f3fe;
+    border-left: 2rem solid #2196F3;
+    color: #000;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.info p {
+    font-size: calc(10px + (16 - 10) * ((100vw - 300px) / (1600 - 300)));
+    font-weight: 800;
+}
+
+.code {
+    flex: 1 1 50rem;
+}
+
+.code .code-box {
+    height: 55rem;
+    border: 1px solid #fff;
+    padding: 3.5rem;
+    color: #fff;
+    border-radius: 0.5rem;
+}
+
+.code .code-box h4 {
+    font-size: calc(10px + (16 - 10) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.code .code-box p {
+    white-space: pre;
+    font-size: calc(8px + (15 - 8) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.code .code-box .btn-style {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: 0;
+    outline: 0;
+    border-radius: 1.5rem;
+    background-color: darkturquoise;
+    color: #fff;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+button.tutorial {
+    display: block;
+    margin: 3rem auto;
+    padding: 2rem 4rem;
+    border: 0;
+    outline: 0;
+    border-radius: 1.5rem;
+    background-color: #10ef53;
+    font-weight: 800;
+    font-size: calc(10px + (18 - 10) * ((100vw - 300px) / (1600 - 300)));
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+button.tutorial i {
+    font-size: calc(15px + (30 - 15) * ((100vw - 300px) / (1600 - 300)));
+    color: red;
+}
+
+.modalBox {
+    display: block;
+    position: fixed;
+    width: 0%;
+    height: 0%;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modalBox .modalBox-container {
+    width: 0%;
+    height: 0%;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: height .7s;
+}
+
+.modalBox.show {
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+}
+
+.modalBox.show .modalBox-container {
+    width: 60%;
+    height: 45rem;
+}
+
+ 
+/* media quaries */
+
+@media (max-width: 850px) {
+    .code .code-box {
+        height: 45rem;
+    } 
+}
+
+@media (max-width: 650px) {
+    .code .code-box {
+        height: 40rem;
+    } 
+}
+
